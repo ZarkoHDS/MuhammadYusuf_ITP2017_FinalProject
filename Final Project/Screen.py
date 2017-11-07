@@ -2,11 +2,12 @@ from Class import *
 global seconds, start_tick
 
 def screen1():
-    FPS=60
+    FPS=60 #For car moving more smmoothly
     fpsClock=pygame.time.Clock()
     screen=pygame.display.set_mode((450,450))
     pygame.display.set_caption('Car Simulation')
     background=pygame.image.load('street 3.png')
+    #For Blocking the wall
     streetblock1 = Streetblocks("wall 1.png", 13,0)
     streetblock2 = Streetblocks("wall 1.png", 13,80)
     streetblock3 = Streetblocks("wall 1.png", 13,200)
@@ -43,7 +44,7 @@ def screen1():
     start_tick=pygame.time.get_ticks()
     running = True
     while running:
-        seconds=(pygame.time.get_ticks() - start_tick)/1000
+        seconds=(pygame.time.get_ticks() - start_tick)/1000 #Timer in the game
         streetblocks.draw(screen)
         screen.fill((0,0,0))
         screen.blit(background,(0,0))
@@ -85,11 +86,12 @@ def screen1():
 
 
 def screen2():
-    FPS=60
+    FPS=60 #for car moving more smoothly
     fpsClock=pygame.time.Clock()
     screen=pygame.display.set_mode((450,450))
     pygame.display.set_caption('Car Simulation')
     background=pygame.image.load('another street.png')
+    #For blocking the wall
     streetblock1 = Streetblocks("wall 1.png", 0,28)
     streetblock2 = Streetblocks("wall 1.png", 0,200)
     streetblock3 = Streetblocks("wall 1.png", 420,180)
@@ -131,7 +133,7 @@ def screen2():
     running = True
     global seconds
     while running:
-        seconds=(pygame.time.get_ticks() - start_tick)/1000
+        seconds=(pygame.time.get_ticks() - start_tick)/1000 #Timer in the game
         streetblocks.draw(screen)
         screen.fill((0,0,0))
         screen.blit(background,(0,0))
@@ -173,11 +175,13 @@ def screen2():
         fpsClock.tick(FPS)
 
 def end():
-    GO = textrect("Times New Roman","GAME OVER",20,170,200,255,255,255)
-    RE = textrect("Times New Roman","RESTART",20,180,240,255,255,255)
-    quit = textrect("Times New Roman", "Quit", 20, 200, 260, 255, 255, 255)
+    GO = textrect("Times New Roman","GAME OVER",20,170,200,255,255,255) #Display Game over in the screen
+    RE = textrect("Times New Roman","RESTART",20,180,240,255,255,255)#Display Restart in the screen
+    quit = textrect("Times New Roman", "Quit", 20, 200, 260, 255, 255, 255)#Display Quit in the screen
+    #music background when the car hit the wall
     pygame.mixer.music.load("Death.wav")
     pygame.mixer.music.play()
+    #Resolution
     screen = pygame.display.set_mode((450,450))
     while True:
         screen.fill((0,0,0))
@@ -204,11 +208,13 @@ def end():
             quit = textrect("Times New Roman", "QUIT",20,200,260,255,255,255)
 
 def finish():
-    CO = textrect("Times New Roman","CONGRATULATION",20,140,200,255,255,255)
-    RE = textrect("Times New Roman","RESTART",20,180,240,255,255,255)
-    quit = textrect("Times New Roman", "Quit", 20, 200, 260, 255, 255, 255)
+    CO = textrect("Times New Roman","CONGRATULATION",20,140,200,255,255,255)#Display CONGRATULATION in the screen
+    RE = textrect("Times New Roman","RESTART",20,180,240,255,255,255)#Display Restart in the screen
+    quit = textrect("Times New Roman", "Quit", 20, 200, 260, 255, 255, 255)#Display Quit in the screen
+    #music background when the car reach finish line
     pygame.mixer.music.load("Ta Da.wav")
     pygame.mixer.music.play()
+    #Resolution
     screen = pygame.display.set_mode((450,450))
     while True:
         screen.fill((0,0,0))
